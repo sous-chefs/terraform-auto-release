@@ -12,7 +12,7 @@ spec:
     solvers:
     - dns01:
         cloudflare:
-          email: my-cloudflare-acc@example.com
+          email: board@sous-chefs.org
           apiTokenSecretRef:
             name: {{ .Values.secretName }}
             key: {{ .Values.secretKey }}
