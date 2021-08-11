@@ -1,5 +1,6 @@
 ---
 extends: default
-
-ignore: |
-  charts
+rules:
+  line-length:
+    max: 256
+    level: warning
