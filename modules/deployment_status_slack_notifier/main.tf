@@ -35,6 +35,10 @@ resource "kubernetes_deployment" "deployment" {
             }
           }
           env {
+            name  = "SKIP_LABEL"
+            value = "Skip: Announcements"
+          }
+          env {
             name  = "SUCCESS_WEBHOOKS"
             value = var.success_webhooks
           }
