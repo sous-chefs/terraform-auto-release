@@ -5,9 +5,10 @@ resource "kubernetes_cron_job" "cookstyle-runner" {
     namespace = var.namespace
   }
   spec {
-    concurrency_policy        = "Replace"
-    failed_jobs_history_limit = 3
-    schedule                  = var.cronjob_schedule
+    concurrency_policy            = "Replace"
+    failed_jobs_history_limit     = 3
+    successful_jobs_history_limit = 3
+    schedule                      = var.cronjob_schedule
     job_template {
       metadata {}
       spec {
