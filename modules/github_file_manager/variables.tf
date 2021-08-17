@@ -64,7 +64,7 @@ variable "pr_body" {
 
 variable "pr_labels" {
   description = "The labels for the pr"
-  type = list(string)
+  type        = list(string)
   default     = ["Release: Patch", "Skip: Announcements"]
 }
 locals {
