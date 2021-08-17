@@ -5,9 +5,10 @@ resource "kubernetes_cron_job" "file-manager" {
     namespace = var.namespace
   }
   spec {
-    concurrency_policy        = "Replace"
-    failed_jobs_history_limit = 3
-    schedule                  = var.cronjob_schedule
+    concurrency_policy            = "Replace"
+    failed_jobs_history_limit     = 3
+    successful_jobs_history_limit = 3
+    schedule                      = var.cronjob_schedule
     job_template {
       metadata {}
       spec {
@@ -65,6 +66,22 @@ resource "kubernetes_cron_job" "file-manager" {
               env {
                 name  = "GFM_PULL_REQUEST_BODY"
                 value = local.pr_body
+              }
+              env {
+                name  = "GFM_PULL_REQUEST_LABELS"
+                value = local.pr_labels
+              }
+              env {
+                name  = "GFM_CHANGELOG_LOCATION"
+                value = var.changelog_location
+              }
+              env {
+                name  = "GFM_CHANGELOG_MARKER"
+                value = var.changelog_marker
+              }
+              env {
+                name  = "GFM_MANAGE_CHANGELOG"
+                value = var.manage_changelog
               }
               env {
                 name = "GFM_GIT_NAME"
