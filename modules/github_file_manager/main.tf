@@ -81,7 +81,7 @@ resource "kubernetes_cron_job" "file-manager" {
               }
               env {
                 name  = "GFM_MANAGE_CHANGELOG"
-                value = var.manage_changelog
+                value = local.manage_changelog
               }
               env {
                 name = "GFM_GIT_NAME"

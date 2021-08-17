@@ -87,6 +87,10 @@ variable "manage_changelog" {
 }
 
 locals {
+  manage_changelog = var.manage_changelog == true ? "1" : "0"
+}
+
+locals {
   default_body = <<BODY
 This PR will standardise the files we have with out agreed spec in ${var.source_repo_owner}/${var.source_repo_name}.
 This repo has been identified by topic(s) of ${var.destination_repo_topics}
