@@ -48,6 +48,8 @@ module "sous-chefs-file-manager-ide" {
   source_repo_path         = "standardfiles/ide"
   destination_repo_owner   = "sous-chefs"
   destination_repo_topics  = "ide"
+  manage_changelog         = false
+  pr_labels                = []
 }
 
 module "sous-chefs-file-manager-terraform" {
@@ -62,6 +64,8 @@ module "sous-chefs-file-manager-terraform" {
   source_repo_path         = "standardfiles/terraform"
   destination_repo_owner   = "sous-chefs"
   destination_repo_topics  = "terraform"
+  manage_changelog         = false
+  pr_labels                = []
 }
 
 module "sous-chefs-file-manager-cookbook" {
