@@ -62,6 +62,30 @@ variable "pr_body" {
   default     = ""
 }
 
+variable "pr_labels" {
+  description = "The labels for the pr"
+  type = list(string)
+  default     = ["Release: Patch", "Skip: Announcements"]
+}
+locals {
+  pr_labels = join(",", var.pr_labels)
+}
+
+variable "changelog_location" {
+  description = "The location of the changelog"
+  default     = "CHANGELOG.md"
+}
+
+variable "changelog_marker" {
+  description = "The marker in the changelog as to where to update from"
+  default     = "## Unreleased"
+}
+
+variable "manage_changelog" {
+  description = "Should we manage the changelog?"
+  default     = true
+}
+
 locals {
   default_body = <<BODY
 This PR will standardise the files we have with out agreed spec in ${var.source_repo_owner}/${var.source_repo_name}.

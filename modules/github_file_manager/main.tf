@@ -67,6 +67,22 @@ resource "kubernetes_cron_job" "file-manager" {
                 value = local.pr_body
               }
               env {
+                name  = "GFM_PULL_REQUEST_LABELS"
+                value = local.pr_labels
+              }
+              env {
+                name  = "GFM_CHANGELOG_LOCATION"
+                value = var.changelog_location
+              }
+              env {
+                name  = "GFM_CHANGELOG_MARKER"
+                value = var.changelog_marker
+              }
+              env {
+                name  = "GFM_MANAGE_CHANGELOG"
+                value = var.manage_changelog
+              }
+              env {
                 name = "GFM_GIT_NAME"
                 value_from {
                   secret_key_ref {
