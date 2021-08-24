@@ -13,5 +13,5 @@
   "cookbook_release_creator": "1.2.0",
   "cookbook_release_validator": "1.0.2",
   "cookbook_supermarket_uploader": "1.0.3",
-  "deployment_status_slack_notifier": "1.2.0"
+  "deployment_status_slack_notifier": "1.2.1"
 }
